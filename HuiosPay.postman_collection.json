@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "0eee840c-cf18-446a-ac8d-394b588efbfc",
+		"name": "HuiosPay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Merchant",
+			"item": [
+				{
+					"name": "Create Merchant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"ad\",\n    \"lastName\": \"ad\",\n    \"email\": \"ad@mail.com\",\n    \"phoneNumber\": \"089\",\n    \"businessName\": \"AD\",\n    \"country\": \"Nigeria\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/merchant/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"merchant",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Training & Development",
+			"item": [
+				{
+					"name": "Get Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/training",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"training"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
