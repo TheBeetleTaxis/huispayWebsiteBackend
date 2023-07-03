@@ -27,6 +27,7 @@ app.use('/api/merchants', merchantRoutes);
 // Training
 app.use('/api/training', trainingRoutes);
 
+/*
 if (process.env.NODE_ENV === 'production') {
 	const __dirname = path.resolve();
 	app.use(express.static(path.join(__dirname, '/frontend/dist')));
@@ -39,8 +40,10 @@ if (process.env.NODE_ENV === 'production') {
 		res.send('API is running....');
 	});
 }
+*/
+app.get('/', (req, res) => res.send('API is ready'));
 
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(port, () => console.log(`Server started on port`));
