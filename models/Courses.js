@@ -46,7 +46,7 @@ const Courses = [
 			'Database',
 			'Datasource',
 			'Advanced Excel',
-			'Data Modelling & Desing',
+			'Data Modelling & Design',
 			'Data Visualization with Power BI',
 		],
 		desc: '',
