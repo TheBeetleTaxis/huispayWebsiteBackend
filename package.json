@@ -6,10 +6,8 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"server": "nodemon server.js",
-		"client": "npm run dev --prefix frontend",
-		"test": "jest --watchAll",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"server": "nodemon server.js"
+		
 	},
 	"author": "Dafe Stanley",
 	"license": "MIT",
