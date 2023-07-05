@@ -1,8 +1,8 @@
 {
-	"name": "mern-auth",
+	"name": "huiospayebsitebackend",
 	"version": "1.0.0",
 	"type": "module",
-	"description": "MERN authentication system",
+	"description": "User registration",
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
@@ -11,7 +11,7 @@
 		"test": "jest --watchAll",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
-	"author": "Brad Traversy",
+	"author": "Dafe Stanley",
 	"license": "MIT",
 	"dependencies": {
 		"@aws-sdk/client-ses": "^3.338.0",
