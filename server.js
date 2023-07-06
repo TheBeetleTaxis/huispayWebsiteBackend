@@ -32,18 +32,21 @@ app.use('/api/merchants', merchantRoutes);
 // Training
 app.use('/api/training', trainingRoutes);
 
+/*
 if (process.env.NODE_ENV === 'production') {
 	const __dirname = path.resolve();
-	app.use(express.static(path.join(__dirname, 'server.js')));
+	app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
 	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'server.js'))
+		res.sendFile(path.resolve(__dirname, 'huispayWesiteBackend', 'dist', 'server.js'))
 	);
 } else {
 	app.get('/', (req, res) => {
 		res.send('API is running too fast...');
 	});
 }
+*/
+app.get('/', (req, res) => res.send('API is running too fast...'));
 
 
 app.use(notFound);
