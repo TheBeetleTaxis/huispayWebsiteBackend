@@ -10,6 +10,8 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import userRoutes from './routes/userRoutes.js';
 import merchantRoutes from './routes/merchantRoutes.js';
 import trainingRoutes from './routes/trainingRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
+
 
 const port = process.env.PORT || 5000;
 
@@ -31,6 +33,10 @@ app.use('/api/users', userRoutes);
 app.use('/api/merchants', merchantRoutes);
 // Training
 app.use('/api/training', trainingRoutes);
+
+// Contact route
+app.use('/api/contact-us', contactRoutes);
+
 
 /*
 if (process.env.NODE_ENV === 'production') {
