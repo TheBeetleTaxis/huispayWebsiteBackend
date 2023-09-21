@@ -29,7 +29,7 @@ app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
-    credentials: false,
+    credentials: true,
   })
 );
 app.use(helmet());
