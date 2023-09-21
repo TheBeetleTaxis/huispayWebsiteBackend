@@ -8,7 +8,7 @@ export const createTestimonial = async (req, res) => {
     try {
       const { logo, caption, review, name, position, image } = req.body;
 
-      const testimonial = new Testimonial({ logo, caption, review, name, position, image, message });
+      const testimonial = new Testimonial({ logo, caption, review, name, position, image });
       await testimonial.save();
       res.status(201).json(testimonial);
     } catch (error) {
