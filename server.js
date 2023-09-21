@@ -1,7 +1,6 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
-import redis from 'redis';
 dotenv.config();
 import connectDB from './config/db.js';
 import cors from 'cors';
