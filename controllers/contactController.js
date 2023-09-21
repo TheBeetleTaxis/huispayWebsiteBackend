@@ -60,21 +60,21 @@ export const getContactByEmail = async (req, res) => {
 
   return res
     .status(200)
-    .json(returnMsg(contact, "Contact retrieved successfully"));
+    .json({contact, message: "Contact retrieved successfully"});
 };
 
 // get by ticket ID
 export const getContactByTicketId = async (req, res) => {
   const { ticketId } = req.params;
-  const contact = await Contact.findOne({ ticketId });
+  const contact = await Contact.find({ ticketId: ticketId });
 
-  if (!contact) {
-    throw new BadRequestError("Contact not found");
+  if (!ticketId) {
+    console.error("TicketID not found");
   }
 
   return res
     .status(200)
-    .json(returnMsg(contact, "Contact retrieved successfully"));
+    .json({ticketId, contact, message: "TicketID retrieved successfully"});
 };
 
 // delete contact

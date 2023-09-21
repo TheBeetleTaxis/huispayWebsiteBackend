@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
+import redis from 'redis';
 dotenv.config();
 import connectDB from './config/db.js';
 import cors from 'cors';
@@ -11,6 +12,8 @@ import userRoutes from './routes/userRoutes.js';
 import merchantRoutes from './routes/merchantRoutes.js';
 import trainingRoutes from './routes/trainingRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
+
+
 
 
 const port = process.env.PORT || 5000;
@@ -38,20 +41,23 @@ app.use('/api/training', trainingRoutes);
 app.use('/api/contact-us', contactRoutes);
 
 
-/*
-if (process.env.NODE_ENV === 'production') {
-	const __dirname = path.resolve();
-	app.use(express.static(path.join(__dirname, '/frontend/dist')));
+// Testimonial route
+// app.use('/api/testimonials', );
 
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'huispayWesiteBackend', 'dist', 'server.js'))
-	);
-} else {
-	app.get('/', (req, res) => {
-		res.send('API is running too fast...');
-	});
-}
-*/
+// to start redis server 
+let redisClient;
+
+(async () => {
+  redisClient = redis.createClient();
+
+  redisClient.on("error", (error) => console.error(`Error : ${error}`));
+
+  await redisClient.connect();
+})();
+
+
+
+
 app.get('/', (req, res) => res.send('API is running too fast...'));
 
 
