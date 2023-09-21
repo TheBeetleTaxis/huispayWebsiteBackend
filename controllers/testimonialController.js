@@ -6,9 +6,9 @@ import Testimonial from '../models/testimonialModel.js';
 
 export const createTestimonial = async (req, res) => {
     try {
-      const { name, position, image, message } = req.body;
+      const { logo, caption, review, name, position, image } = req.body;
 
-      const testimonial = new Testimonial({ name, position, image, message });
+      const testimonial = new Testimonial({ logo, caption, review, name, position, image, message });
       await testimonial.save();
       res.status(201).json(testimonial);
     } catch (error) {
