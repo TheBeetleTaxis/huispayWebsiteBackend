@@ -6,6 +6,16 @@ config();
 
 const DEBUG = debug("dev");
 
+// const transporter = createTransport({
+//   port: Number(process.env.EMAIL_PORT),
+//   host: process.env.EMAIL_HOST,
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+//   secure: true,
+// });
+
 const transporter = createTransport({
   port: Number(process.env.EMAIL_PORT),
   host: process.env.EMAIL_HOST,
@@ -14,6 +24,7 @@ const transporter = createTransport({
     pass: process.env.EMAIL_PASS,
   },
   secure: true,
+  tls: { rejectUnauthorized: false },
 });
 
 export async function sendMail(
