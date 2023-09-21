@@ -10,7 +10,7 @@ export const contactUs = async (req, res) => {
     const contactData = req.body
     
 
-    const isExist = await Contact.findOne({
+    const isExist = await Contact.findOne({_id:
       ticketId
     })
 
