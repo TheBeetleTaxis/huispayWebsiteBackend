@@ -51,15 +51,15 @@ app.use('/api/contact-us', contactRoutes);
 // app.use('/api/testimonials', );
 
 // to start redis server 
-let redisClient;
+// let redisClient;
 
-(async () => {
-  redisClient = redis.createClient();
+// (async () => {
+//   redisClient = redis.createClient();
 
-  redisClient.on("error", (error) => console.error(`Error : ${error}`));
+//   redisClient.on("error", (error) => console.error(`Error : ${error}`));
 
-  await redisClient.connect();
-})();
+//   await redisClient.connect();
+// })();
 
 
 
