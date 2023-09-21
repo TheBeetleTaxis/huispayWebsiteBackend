@@ -16,3 +16,31 @@ export const createTestimonial = async (req, res) => {
     }
   };
 
+  // Get a testimonial by ID
+export const getTestimonialById = async (req, res) => {
+    try {
+      const testimonialId = req.params.id;
+      const testimonial = await Testimonial.findById(testimonialId);
+      
+      if (!testimonial) {
+        return res.status(404).json({ error: 'Testimonial not found' });
+      }
+      
+      res.status(200).json(testimonial);
+    } catch (error) {
+      res.status(500).json({ error: 'Error retrieving testimonial by ID' });
+    }
+  };
+
+  // Get all testimonials
+export const getAllTestimonial = async (req, res) => {
+    try {
+      const testimonials = await Testimonial.find();
+      res.status(200).json(testimonials);
+    } catch (error) {
+      res.status(500).json({ error: 'Error retrieving testimonials' });
+    }
+  };
+
+  
+

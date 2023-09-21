@@ -69,7 +69,7 @@ app.use('/api/training', trainingRoutes);
 app.use('/api/contact-us', contactRoutes);
 
 
-// Testimonial route
+// create Testimonial 
 app.use('/api/testimonials', testimonialRoutes);
 
 
