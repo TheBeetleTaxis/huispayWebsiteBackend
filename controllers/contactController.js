@@ -32,7 +32,8 @@ export const contactUs = async (req, res) => {
         contactData.email,
         emailSubject,
         msgData.message,
-        msgData.attachment
+        msgData.attachment,
+        true
       );
     
     } catch (error) {

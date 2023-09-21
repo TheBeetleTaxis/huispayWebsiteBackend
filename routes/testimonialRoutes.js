@@ -1,9 +1,9 @@
 import express from 'express';
-import { createTestimonial } from '../controllers/testimonialController';
+import { createTestimonial } from '../controllers/testimonialController.js';
 
 const router = express.Router();
 
-app.post('/testimonial', createTestimonial )
+router.post('/', createTestimonial )
 
 
 export default router;

@@ -11,6 +11,7 @@ import userRoutes from './routes/userRoutes.js';
 import merchantRoutes from './routes/merchantRoutes.js';
 import trainingRoutes from './routes/trainingRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
+import testimonialRoutes from './routes/testimonialRoutes.js';
 
 
 
@@ -69,18 +70,8 @@ app.use('/api/contact-us', contactRoutes);
 
 
 // Testimonial route
-// app.use('/api/testimonials', );
+app.use('/api/testimonials', testimonialRoutes);
 
-// to start redis server 
-// let redisClient;
-
-// (async () => {
-//   redisClient = redis.createClient();
-
-//   redisClient.on("error", (error) => console.error(`Error : ${error}`));
-
-//   await redisClient.connect();
-// })();
 
 
 

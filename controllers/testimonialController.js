@@ -1,5 +1,5 @@
 
-import Testimonial from '../models/testimonialModel';
+import Testimonial from '../models/testimonialModel.js';
 
 // Create a new testimonial
 
@@ -10,7 +10,7 @@ export const createTestimonial = async (req, res) => {
 
       const testimonial = new Testimonial({ name, position, image, message });
       await testimonial.save();
-      res.status(201).json("Testimonial created successfully",testimonial);
+      res.status(201).json(testimonial);
     } catch (error) {
       res.status(500).json({ error: 'Error creating testimonial' });
     }

@@ -3,9 +3,8 @@ import { dirname } from 'path';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const resFilename = fileURLToPath(import.meta.url);
-// const resFilename = url.pathToFileURL(__filename).toString();
-const mydirname = path.dirname(resFilename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 
 
@@ -54,8 +53,8 @@ export const contactUsResponseMsg = (data) => {
 
                     Best regards, <br>
                     Huiospay
-                    
-                 <img src="cid:huiospay-logo.png" alt="huiospay-logo">
+                    <br><br>
+                 <img src="cid:huiospay_logo.png" alt="huiospay_logo">
                        
             
                 </td>
@@ -159,8 +158,8 @@ style="color:#999999;
 attachment: [
     {
       filename: "huiospay-logo.png",
-      path: mydirname + "/onboarding-template-images/huiospay-logo.png",
-      cid: "huiospay-logo.png",
+      path: __dirname + "/email-attachments/huiospay_logo.png",
+      cid: "huiospay_logo.png",
     }
   ]
 }
