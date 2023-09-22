@@ -3,6 +3,8 @@ import { getUniqueId } from '../utils/validators/unique-id.js';
 import { contactUsResponseMsg } from '../utils/contact-us-response.js';
 import { sendMail } from '../utils/send-mail.js';
 
+
+
 export const contactUs = async (req, res) => {
   try {
     const ticketId = await getUniqueId() 

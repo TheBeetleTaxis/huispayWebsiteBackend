@@ -10,18 +10,19 @@ export const createMerchant = async (req, res) => {
     try {
       const { firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update } = req.body;
 
+      const merchantData = req.body
       const merchant = new Merchant({ firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update });
       await merchant.save();
 
 // send response email to user
 try {
 	const msgData = contactUsResponseMsg ({
-	  firstName: contactData.firstName,
+	  firstName: merchantData.firstName,
 	});
    
 	const emailSubject = "HuiosPay Merchant Account Registration";
 	await sendMail(
-	  contactData.email,
+	  merchantData.email,
 	  emailSubject,
 	  msgData.message,
 	  msgData.attachment,
