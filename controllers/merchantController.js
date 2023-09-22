@@ -1,16 +1,70 @@
-import asyncHandler from 'express-async-handler';
+import { contactUsResponseMsg } from '../utils/contact-us-response.js';
+import { sendMail } from '../utils/send-mail.js';
+import Merchant from '../models/merchantModel.js';
 
-const merchantResponse = asyncHandler(async (req, res) => {
-	try {
-		// Retrieve the merchant from the response object
-		const { merchant } = res;
-		// Return a 201 Created response with the merchant JSON
-		return res.status(201).json(merchant);
-	} catch (err) {
-		// Handle and propagate any unexpected errors
-		res.status(500);
-		throw new Error(err.message);
-	}
-});
 
-export { merchantResponse };
+// Create a new testimonial
+
+
+export const createMerchant = async (req, res) => {
+    try {
+      const { firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update } = req.body;
+
+      const merchant = new Merchant({ firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update });
+      await merchant.save();
+
+// send response email to user
+try {
+	const msgData = contactUsResponseMsg ({
+	  firstName: contactData.firstName,
+	});
+   
+	const emailSubject = "HuiosPay Merchant Account Registration";
+	await sendMail(
+	  contactData.email,
+	  emailSubject,
+	  msgData.message,
+	  msgData.attachment,
+	  true
+	);
+  
+  } catch (error) {
+	console.log(error)
+  }
+
+  res.status(201).json({
+	message: 'Merchant Created Successfully, check your email for further guide.'
+  });
+} catch (error) {
+  console.error('Error creating merchant', error);
+  res.status(500).json({ message: 'An error occurred while sending the message' });
+}
+};	  
+ 
+
+   // Get merchant by ID
+export const getMerchantById = async (req, res) => {
+    try {
+      const merchantId = req.params.id;
+      const merchant = await Merchant.findById(merchantId);
+      
+      if (!merchant) {
+        return res.status(404).json({ error: 'Merchant not found' });
+      }
+      
+      res.status(200).json(merchant);
+    } catch (error) {
+      res.status(500).json({ error: 'Error retrieving merchant by ID' });
+    }
+  };
+
+  // Get all testimonials
+export const getAllMerchants = async (req, res) => {
+    try {
+      const merchant = await Merchant.find();
+      res.status(200).json(merchant);
+    } catch (error) {
+      res.status(500).json({ error: 'Error retrieving Merchants' });
+    }
+  };
+

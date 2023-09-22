@@ -1,6 +1,6 @@
 import express from 'express';
-import { merchantResponse } from '../controllers/merchantController.js';
-import sendEmail from '../middleware/emailMiddleware.js';
+
+// import sendEmail from '../middleware/emailMiddleware.js';
 import { contactUs, getContactByEmail, getContactByTicketId, deleteContact, getAllContact } from '../controllers/contactController.js';
 
 
@@ -13,8 +13,7 @@ const router = express.Router();
 router.post(
 	'/',
 	contactUs,
-	sendEmail,
-	merchantResponse
+	
 );
 
 router.get(
