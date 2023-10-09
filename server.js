@@ -12,6 +12,7 @@ import merchantRoutes from './routes/merchantRoutes.js';
 import trainingRoutes from './routes/trainingRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import testimonialRoutes from './routes/testimonialRoutes.js';
+import agentRoutes from './routes/agentRoutes.js';
 
 
 
@@ -62,6 +63,9 @@ app.use('/api/users', userRoutes);
 
 // Become a merchant
 app.use('/api/merchants', merchantRoutes);
+
+// Become an Agent
+app.use('/api/agent', agentRoutes);
 // Training
 app.use('/api/training', trainingRoutes);
 

@@ -3,8 +3,7 @@ import { sendMail } from '../utils/send-mail.js';
 import Merchant from '../models/merchantModel.js';
 
 
-// Create a new testimonial
-
+// Create a new Merchant
 
 export const createMerchant = async (req, res) => {
     try {
