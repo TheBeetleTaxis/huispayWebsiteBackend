@@ -7,10 +7,10 @@ import Merchant from '../models/merchantModel.js';
 
 export const createMerchant = async (req, res) => {
     try {
-      const { firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update } = req.body;
+      const { firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment,noPosReq, description, update } = req.body;
 
       const merchantData = req.body
-      const merchant = new Merchant({ firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, description, update });
+      const merchant = new Merchant({ firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment, noPosReq, description, update });
       await merchant.save();
 
 // send response email to user

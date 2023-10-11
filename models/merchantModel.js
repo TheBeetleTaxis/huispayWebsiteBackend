@@ -13,6 +13,7 @@ const merchantSchema = new mongoose.Schema(
 		product: { type: String },
 		country: { type: String, required: true },
 		payment: { type: Number },
+		noPosReq: { type: Number },
 		description: { type: String },
 		update: { type: Boolean, default: false },
 	},
