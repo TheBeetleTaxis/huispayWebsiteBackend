@@ -7,10 +7,10 @@ import Agent from '../models/agentModel.js';
 
 export const createAgent = async (req, res) => {
     try {
-      const { firstName, lastName, email, phoneNumber, businessName, address, noPosReq, update } = req.body;
+      const { firstName, lastName, email, phoneNumber, businessName, address, residentialAddress, noPosReq, update } = req.body;
 
       const agentData = req.body
-      const agent = new Agent({ firstName, lastName, email, phoneNumber, businessName, address, noPosReq, update });
+      const agent = new Agent({ firstName, lastName, email, phoneNumber, businessName, address, residentialAddress, noPosReq, update });
       await agent.save();
 
 // send response email to agent
@@ -19,7 +19,7 @@ try {
 	  firstName: agentData.firstName,
 	});
    
-	const emailSubject = "HuiosPay Agent Account Registration";
+	const emailSubject = "HuiosPay Agent Pre-registration Account";
 	await sendMail(
 	  agentData.email,
 	  emailSubject,
@@ -33,7 +33,7 @@ try {
   }
 
   res.status(201).json({
-	message: 'Agent Created Successfully, check your email for further guide.'
+	message: 'Agent Pre-registration account Created Successfully, check your email for further guide.'
   });
 } catch (error) {
   console.error('Error creating agent', error);

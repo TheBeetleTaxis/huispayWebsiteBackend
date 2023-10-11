@@ -45,7 +45,7 @@ export const contactUsResponseMsg = (data) => {
                     <p style="font-size: inherit;
                     letter-spacing: inherit; line-height: inherit;
                     color: inherit;">
-                    Thank you for contacting us <b> </b>. One of our representative will get in touch with you shortly.
+                    Thank you for your interest in using our terminal. <b> </b>.Our business team will get in touch with you shortly to initiate the acquisition process.
                     </p>
     
                    

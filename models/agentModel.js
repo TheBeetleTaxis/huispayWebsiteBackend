@@ -9,6 +9,7 @@ const agentSchema = new mongoose.Schema(
 		phoneNumber: { type: String, required: true, unique: true },
 		businessName: { type: String, required: true },
 		address: { type: String, required: true },
+		residentialAddress: { type: String, required: true },
 		noPosReq: { type: Number },
 		update: { type: Boolean, default: false },
 	},
