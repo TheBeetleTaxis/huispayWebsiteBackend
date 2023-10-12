@@ -8,7 +8,7 @@ const merchantSchema = new mongoose.Schema(
 		email: { type: String, required: true, unique: true },
 		phoneNumber: { type: String, required: true, unique: true },
 		businessName: { type: String, required: true },
-		website: { type: String, sparse: true},
+		website: { type: String },
 		size: { type: Number },
 		product: { type: String },
 		country: { type: String, required: true },
