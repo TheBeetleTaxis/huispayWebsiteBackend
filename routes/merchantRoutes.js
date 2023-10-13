@@ -1,7 +1,8 @@
 import express from 'express';
-// import { createMerchant } from '../middleware/merchantMiddleware.js';
+//import { createMerchant } from '../middleware/merchantMiddleware.js';
 import { createMerchantValidator } from '../utils/validators/merchantValidator.js';
 import {  createMerchant, getAllMerchants, getMerchantById } from '../controllers/merchantController.js';
+import validators from '../utils/validators/validators.js';
 
 
 const router = express.Router();
@@ -17,7 +18,7 @@ const router = express.Router();
 // );
 
 // create Merchant
-router.post('/', createMerchant, createMerchantValidator )
+router.post('/', createMerchant )
 
 
 // get merchant by Id

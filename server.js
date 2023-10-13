@@ -13,6 +13,7 @@ import trainingRoutes from './routes/trainingRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import testimonialRoutes from './routes/testimonialRoutes.js';
 import agentRoutes from './routes/agentRoutes.js';
+import { createMerchantValidator } from './utils/validators/merchantValidator.js';
 
 
 
