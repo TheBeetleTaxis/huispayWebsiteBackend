@@ -1,11 +1,12 @@
 import { contactUsResponseMsg } from '../utils/contact-us-response.js';
 import { sendMail } from '../utils/send-mail.js';
 import Merchant from '../models/merchantModel.js';
+import { validationResult } from 'express-validator';
+import asyncHandler from 'express-async-handler';
 
 
 // Create a new Merchant
-
-export const createMerchant = async (req, res) => {
+export const createMerchant = asyncHandler(async (req, res, next) => {
     try {
       const { firstName, lastName, email, phoneNumber, businessName, website, size, product, country, payment,noPosReq, description, update } = req.body;
 
@@ -15,6 +16,7 @@ export const createMerchant = async (req, res) => {
 
 // send response email to user
 try {
+  const error = validationResult(req);
 	const msgData = contactUsResponseMsg ({
 	  firstName: merchantData.firstName,
 	});
@@ -27,11 +29,11 @@ try {
 	  msgData.attachment,
 	  true
 	);
-  
+
   } catch (error) {
 	console.log(error)
   }
-
+ 
   res.status(201).json({
 	message: 'Merchant Created Successfully, check your email for further guide.'
   });
@@ -39,7 +41,7 @@ try {
   console.error('Error creating merchant', error);
   res.status(500).json({ message: 'An error occurred while sending the message' });
 }
-};	  
+});	  
  
 
    // Get merchant by ID
